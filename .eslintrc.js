@@ -1,0 +1,42 @@
+module.exports = {
+    env: {
+        browser: true,
+        es2021: true,
+        node: true,
+    },
+    extends: [
+        'airbnb-base',
+        'eslint:recommended',
+        'plugin:vue/vue3-essential',
+        'plugin:prettier/recommended',
+    ],
+    overrides: [],
+    parser: 'vue-eslint-parser',
+    parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+        ecmaFeatures: {
+            jsx: true,
+        },
+    },
+    plugins: ['vue', 'prettier'],
+    rules: {
+        'import/extensions': 'off',
+        'import/no-extraneous-dependencies': 'off',
+        'import/no-unresolved': 'off',
+        'import/prefer-default-export': 'off',
+        'no-console': 'off',
+        'no-undef': 'off',
+        'linebreak-style': ['error', 'unix'],
+        'prefer-promise-reject-errors': 'off',
+        'vue/multi-word-component-names': 'off',
+        'consistent-return': 'off',
+        'no-param-reassign': 'off',
+        'no-plusplus': 'off',
+        camelcase: 'off',
+        indent: ['error', 4],
+        quotes: ['error', 'single'],
+        semi: ['error', 'always'],
+        'prettier/prettier': 'error',
+    },
+};
