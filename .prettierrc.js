@@ -5,4 +5,5 @@ module.exports = {
     singleQuote: true,
     singleAttributePerLine: true,
     bracketSameLine: true,
+    printWidth: 110,
 }
