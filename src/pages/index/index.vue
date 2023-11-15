@@ -1,7 +1,6 @@
 <template>
     <view class="content">
-        <mp-test></mp-test>
-        123
+        <view> </view>
     </view>
 </template>
 

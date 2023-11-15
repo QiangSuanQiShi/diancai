@@ -55,7 +55,8 @@
     "uview-plus": "^3.1.35",
     "vue": "^3.2.45",
     "pinia": "2.0.33",
-    "vue-i18n": "^9.1.9"
+    "vue-i18n": "^9.1.9",
+    "z-paging": "^2.5.8"
   },
   "devDependencies": {
     "@dcloudio/types": "^3.3.2",
@@ -72,6 +73,10 @@
     "@vue/eslint-config-prettier": "^7.1.0",
     "@vue/eslint-config-typescript": "^11.0.3",
     "@vue/tsconfig": "^0.4.0",
+    "@unocss/preset-attributify": "^0.55.1",
+    "@unocss/preset-icons": "^0.46.5",
+    "@unocss/preset-uno": "^0.55.1",
+    "unocss": "^0.51.13",
     "eslint": "8.22.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.8.0",

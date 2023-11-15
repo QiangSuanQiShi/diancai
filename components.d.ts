@@ -9,7 +9,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    MpTest: typeof import('./src/pages/components/mp-test.vue')['default']
+    MpTest: typeof import('./src/components/mp-test.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     'U-Form': typeof import('./node_modules/uview-plus/components/u--form/u--form.vue')['default']
@@ -114,5 +114,10 @@ declare module '@vue/runtime-core' {
     UTr: typeof import('./node_modules/uview-plus/components/u-tr/u-tr.vue')['default']
     UTransition: typeof import('./node_modules/uview-plus/components/u-transition/u-transition.vue')['default']
     UUpload: typeof import('./node_modules/uview-plus/components/u-upload/u-upload.vue')['default']
+    ZPaging: typeof import('./node_modules/z-paging/components/z-paging/z-paging.vue')['default']
+    ZPagingCell: typeof import('./node_modules/z-paging/components/z-paging-cell/z-paging-cell.vue')['default']
+    ZPagingEmptyView: typeof import('./node_modules/z-paging/components/z-paging-empty-view/z-paging-empty-view.vue')['default']
+    ZPagingSwiper: typeof import('./node_modules/z-paging/components/z-paging-swiper/z-paging-swiper.vue')['default']
+    ZPagingSwiperItem: typeof import('./node_modules/z-paging/components/z-paging-swiper-item/z-paging-swiper-item.vue')['default']
   }
 }

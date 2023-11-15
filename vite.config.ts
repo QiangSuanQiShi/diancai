@@ -3,6 +3,8 @@ import uni from '@dcloudio/vite-plugin-uni';
 import { defineConfig } from 'vite';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import Components from 'unplugin-vue-components/vite';
+import Unocss from 'unocss/vite';
+import { presetUno, presetAttributify, presetIcons } from 'unocss';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -10,13 +12,16 @@ export default defineConfig({
         Components({
             extensions: ['vue', 'tsx'],
             globs: [
-                'src/pages/components/mp-*.vue',
+                'src/components/mp-*.vue',
                 'node_modules/z-paging/components/z-paging/z-paging.vue',
                 'node_modules/z-paging/components/z-paging-*/z-paging-*.vue',
                 'node_modules/uview-plus/components/u-*/u-*.vue',
             ],
         }),
         uni(),
+        Unocss({
+            presets: [presetUno(), presetAttributify(), presetIcons()],
+        }),
         vueJsx(),
     ],
     server: {
