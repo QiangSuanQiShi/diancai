@@ -9,6 +9,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    MpTest: typeof import('./src/pages/components/mp-test.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     'U-Form': typeof import('./node_modules/uview-plus/components/u--form/u--form.vue')['default']

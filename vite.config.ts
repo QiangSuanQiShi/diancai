@@ -10,7 +10,7 @@ export default defineConfig({
         Components({
             extensions: ['vue', 'tsx'],
             globs: [
-                'src/components/mp-*.vue',
+                'src/pages/components/mp-*.vue',
                 'node_modules/z-paging/components/z-paging/z-paging.vue',
                 'node_modules/z-paging/components/z-paging-*/z-paging-*.vue',
                 'node_modules/uview-plus/components/u-*/u-*.vue',

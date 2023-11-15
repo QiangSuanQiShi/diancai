@@ -2,7 +2,7 @@
 
 <template>
     <view class="test">
-        <text>123</text>
+        <text>11231232323</text>
     </view>
 </template>
 
