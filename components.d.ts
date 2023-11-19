@@ -14,6 +14,7 @@ declare module '@vue/runtime-core' {
     MpGap: typeof import('./src/components/mp-gap.vue')['default']
     MpImages: typeof import('./src/components/mp-images.vue')['default']
     MpLoginButton: typeof import('./src/components/mp-login-button.vue')['default']
+    MpMenu: typeof import('./src/components/mp-menu.vue')['default']
     MpPhone: typeof import('./src/components/mp-phone.vue')['default']
     MpTabItem: typeof import('./src/components/mp-tab-item.vue')['default']
     MpTabs: typeof import('./src/components/mp-tabs.vue')['default']

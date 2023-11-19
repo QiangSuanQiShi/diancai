@@ -42,6 +42,7 @@
             <view class="tabs">
                 <u-tabs
                     :current="current"
+                    :duration="200"
                     line-color="#12c294"
                     :list="list1"
                     @change="onTabChange"
@@ -57,7 +58,7 @@
                         <scroll-view
                             style="width: 100%; min-height: 0; overflow: visible; height: 100%"
                             :scroll-y="true">
-                            123
+                            <mp-menu></mp-menu>
                         </scroll-view>
                     </view>
                 </swiper-item>

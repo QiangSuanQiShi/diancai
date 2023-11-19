@@ -16,24 +16,26 @@ const emits = defineEmits(['click']);
                 height="180rpx"></u-image>
         </view>
         <view class="info">
-            <view class="info-title">
-                <text class="u-line-1">羊肉卷</text>
-            </view>
-            <view class="info-desc">
-                <text class="u-line-1"> 100g羊排卷 </text>
-            </view>
-            <view class="score"> 5分 </view>
-
-            <view class="sales">
-                <view class="sales-info">
-                    <text>月售100</text>
-                    <text>人均￥11000</text>
+            <slot>
+                <view class="info-title">
+                    <text class="u-line-1">羊肉卷</text>
                 </view>
-
-                <view>
-                    <text>100m</text>
+                <view class="info-desc">
+                    <text class="u-line-1"> 100g羊排卷 </text>
                 </view>
-            </view>
+                <view class="score"> 5分 </view>
+
+                <view class="sales">
+                    <view class="sales-info">
+                        <text>月售100</text>
+                        <text>人均￥11000</text>
+                    </view>
+
+                    <view>
+                        <text>100m</text>
+                    </view>
+                </view>
+            </slot>
         </view>
     </view>
 </template>
