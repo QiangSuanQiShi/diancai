@@ -6,6 +6,30 @@ declare global {
             js_code: string;
             code: string;
         }
+
+        interface UserResponse {
+            id: string;
+            openId: string;
+            userName: string;
+            phone: string;
+            foodStats: string;
+            authority: number;
+            isBan: number;
+            collectFoodSku: string;
+            createTime: string;
+            updateTime: string;
+        }
+
+        interface AccountInitInfo {
+            user: UserResponse;
+            token: string;
+            createdAt: string;
+            tokenExpiration: string;
+        }
+
+        interface UserState {
+            user: UserResponse | null;
+        }
     }
 
     namespace MpUi {}
@@ -41,17 +65,19 @@ declare global {
 
         interface Helper {
             /**
-             * 完整资源路径
-             * @param url
-             */
-            src: (url: string | undefined | null) => string;
-
-            /**
              * 页面跳转
              * @param url
              * @param type
              */
             to: (url: string, type?: 'navigate' | 'redirect' | 'tab') => void;
+
+            /**
+             * 手机号码脱敏
+             * @param phone
+             * @param former
+             * @param latter
+             */
+            phoneNumberConvert: (phone: string, former?: number, latter?: number) => string;
         }
     }
 

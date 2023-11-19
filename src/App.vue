@@ -1,10 +1,16 @@
 <script>
+import { useMpStore } from '@/store';
+
 export default {
     onLaunch() {
         console.log('App Launch');
     },
-    onShow() {
-        console.log('App Show');
+    async onShow() {
+        const store = useMpStore();
+
+        if (!store.isLogin) {
+            await store.init();
+        }
     },
     onHide() {
         console.log('App Hide');

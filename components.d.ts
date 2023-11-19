@@ -9,6 +9,14 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    MpAvatar: typeof import('./src/components/mp-avatar.vue')['default']
+    MpCommodityItemCard: typeof import('./src/components/mp-commodity-item-card.vue')['default']
+    MpGap: typeof import('./src/components/mp-gap.vue')['default']
+    MpImages: typeof import('./src/components/mp-images.vue')['default']
+    MpLoginButton: typeof import('./src/components/mp-login-button.vue')['default']
+    MpPhone: typeof import('./src/components/mp-phone.vue')['default']
+    MpTabItem: typeof import('./src/components/mp-tab-item.vue')['default']
+    MpTabs: typeof import('./src/components/mp-tabs.vue')['default']
     MpTest: typeof import('./src/components/mp-test.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

@@ -17,7 +17,7 @@ service.interceptors.request.use((config: HttpRequestConfig) => {
     if (token) {
         config.header = {
             ...config.header,
-            Authorization: `Bearer ${token}`,
+            token: `${token}`,
         };
     }
     return config;

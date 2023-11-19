@@ -2,36 +2,84 @@ $u-main-color: #303133;
 $u-content-color: #606266;
 $u-tips-color: #909193;
 $u-light-color: #c0c4cc;
-$u-border-color: #dadbde;
-$u-bg-color: #f3f4f6;
+$u-border-color: #f5f5f5;
+$u-bg-color: #f6f7fa;
 $u-disabled-color: #c8c9cc;
-
-$u-primary: #ff5f58;
-$u-primary-dark: #fc7e79;
-$u-primary-disabled: #fca3a0;
-$u-primary-light: #fff4f1;
-
-$u-warning: #f9ae3d;
-$u-warning-dark: #f1a532;
-$u-warning-disabled: #f9d39b;
+/**
+ * 主题色
+ */
+$u-primary: #12c294;
+$u-primary-dark: #56bea4;
+$u-primary-disabled: #72bbab;
+$u-primary-light: #9cb4ad;
+/**
+ * 警告色
+ */
+$u-warning: #e55f1e;
+$u-warning-dark: #e57c48;
+$u-warning-disabled: #e18e6b;
 $u-warning-light: #fdf6ec;
+/**
+ * 成功色
+ */
+$u-success: #BFDB38;
+$u-success-dark: #bbd55e;
+$u-success-disabled: #c4d58f;
+$u-success-light: #c9d2b1;
+/**
+ * 错误色
+ */
+$u-error: #CD1818;
+$u-error-dark: #c54a4a;
+$u-error-disabled: #c47777;
+$u-error-light: #bda2a2;
+/**
+ * 提示色
+ */
+$u-info: #3577f1;
+$u-info-dark: #5b8dee;
+$u-info-disabled: #97acec;
+$u-info-light: #cdd0e8;
+/**
+ *
+ */
+$u-text-white: rgba(255 , 255 , 255 , 1);
+$u-text-white-dark: rgba(255 , 255 , 255 , 0.85);
+$u-text-white-disabled: rgba(255 , 255 , 255 , 0.65);
+$u-text-white-light: rgba(255 , 255 , 255 , 0.45);
 
-$u-success: #29cc97;
-$u-success-dark: #58c79a;
-$u-success-disabled: #7bc5a7;
-$u-success-light: #d9eedb;
+$u-price-color: #e1251b;
 
-$u-error: #f56c6c;
-$u-error-dark: #e45656;
-$u-error-disabled: #f7b2b2;
-$u-error-light: #fef0f0;
+$u-text-title: rgba(0 , 0 , 0 , 1); // 标题文本色
+$u-text-secondary: rgba(0 , 0 , 0 , 0.85); // 副标题文本色
+$u-main-text: rgba(0 , 0 , 0 , 0.65); // 文本色
+$u-text-secondary: rgba(0 , 0 , 0 , 0.45); // 次文本色
+$u-text-disabled-color: rgba(0, 0, 0, 0.25); // 失效色
 
-$u-info: #909399;
-$u-info-dark: #767a82;
-$u-info-disabled: #c4c6c9;
-$u-info-light: #f4f4f5;
+$u-icon-dark: #f3f4f6;
 
-$u-text-white: #FFFFFF;
+$base-font-size: 16;
+
+// 字体尺寸
+$font-sizes:(
+        xxs: 12,
+        xs: 14,
+        sm: 16,
+        md: 18,
+        lg: 20,
+        xl: 22
+);
+
+// 间距尺寸
+$spacing-sizes: (
+        sm: 8,
+        md: 16,
+        lg: 24,
+        xl: 32,
+);
+
+
+
 
 // scss混入，为了少写几行#ifndef
 @mixin flex($direction: row) {

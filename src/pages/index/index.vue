@@ -1,35 +1,39 @@
 <template>
     <view class="content">
-        <view>
-            <u-button
-                type="primary"
-                text="微信用户一键登录"
-                open-type="getPhoneNumber"
-                :plain="true"
-                @getphonenumber="getUserPhoneNumber"></u-button>
+        <view class="search">
+            <u-search></u-search>
+        </view>
+        <view class="list">
+            <mp-commodity-item-card @click="onClick"></mp-commodity-item-card>
+            <mp-commodity-item-card></mp-commodity-item-card>
+            <mp-commodity-item-card></mp-commodity-item-card>
+            <mp-commodity-item-card></mp-commodity-item-card>
+            <mp-commodity-item-card></mp-commodity-item-card>
+            <mp-commodity-item-card></mp-commodity-item-card>
         </view>
     </view>
 </template>
 
 <script setup lang="ts">
-import accounts from '@/api/accounts';
-
-const getUserPhoneNumber = (res: any) => {
-    uni.login({
-        provider: 'weixin',
-        async success(loginRes) {
-            const data: any = await accounts.login({
-                js_code: loginRes.code,
-                code: res.detail.code,
-            });
-            console.log(data);
-        },
-    });
+const onClick = () => {
+    uni.$mp.to('/pages/index/store');
 };
 </script>
 
-<style lang="scss" scoped>
-.test {
-    background-color: #ffffff;
+<style lang="scss">
+.content,
+page {
+    background-color: $u-bg-color;
+}
+.content {
+    & > .search {
+        background-color: #ffffff;
+        padding: 32rpx;
+        box-sizing: border-box;
+    }
+
+    & > .list {
+        padding: 32rpx;
+    }
 }
 </style>

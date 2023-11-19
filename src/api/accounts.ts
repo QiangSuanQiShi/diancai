@@ -1,6 +1,8 @@
-import { get } from '@/plugins/request';
+import { get, post } from '@/plugins/request';
 
 export default {
     // 账号登录
-    login: (params: MpApi.WxLoginForm) => get<string>('/user/login', params),
+    login: (data: MpApi.WxLoginForm) => post<MpApi.AccountInitInfo>('/login', data),
+    // 管理端初始化
+    init: () => get<MpApi.UserResponse>('/init'),
 };
