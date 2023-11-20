@@ -68,7 +68,13 @@
                         <scroll-view
                             style="width: 100%; min-height: 0; overflow: visible; height: 100%"
                             :scroll-y="true">
-                            12312313
+                            <view>
+                                <mp-comment></mp-comment>
+                                <mp-comment></mp-comment>
+                                <mp-comment></mp-comment>
+                                <mp-comment></mp-comment>
+                                <mp-comment></mp-comment>
+                            </view>
                         </scroll-view>
                     </view>
                 </swiper-item>

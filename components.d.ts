@@ -10,6 +10,7 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     MpAvatar: typeof import('./src/components/mp-avatar.vue')['default']
+    MpComment: typeof import('./src/components/mp-comment.vue')['default']
     MpCommodityItemCard: typeof import('./src/components/mp-commodity-item-card.vue')['default']
     MpGap: typeof import('./src/components/mp-gap.vue')['default']
     MpImages: typeof import('./src/components/mp-images.vue')['default']
