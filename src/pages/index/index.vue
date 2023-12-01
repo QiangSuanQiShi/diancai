@@ -1,15 +1,20 @@
 <template>
     <view class="content">
         <view class="search">
-            <u-search></u-search>
+            <u-search
+                border-color="#12c294"
+                :show-action="false"></u-search>
+        </view>
+        <view>
+            <swiper autoplay>
+                <swiper-item>1</swiper-item>
+                <swiper-item>2</swiper-item>
+                <swiper-item>3</swiper-item>
+            </swiper>
         </view>
         <view class="list">
             <mp-commodity-item-card @click="onClick"></mp-commodity-item-card>
-            <mp-commodity-item-card></mp-commodity-item-card>
-            <mp-commodity-item-card></mp-commodity-item-card>
-            <mp-commodity-item-card></mp-commodity-item-card>
-            <mp-commodity-item-card></mp-commodity-item-card>
-            <mp-commodity-item-card></mp-commodity-item-card>
+            <mp-local-cuisine></mp-local-cuisine>
         </view>
     </view>
 </template>
@@ -27,7 +32,6 @@ page {
 }
 .content {
     & > .search {
-        background-color: #ffffff;
         padding: 32rpx;
         box-sizing: border-box;
     }

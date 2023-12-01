@@ -1,5 +1,5 @@
 <template>
-    <view>
+    <view class="content">
         <view
             @click="onLoginOrToUserInfo"
             class="user-info">
@@ -20,26 +20,43 @@
                 </view>
             </view>
         </view>
-        <mp-gap></mp-gap>
-
-        <u-cell-group>
-            <u-cell
-                is-link
-                icon="setting-fill"
-                title="个人设置"></u-cell>
-            <u-cell
-                is-link
-                icon="setting-fill"
-                title="个人设置"></u-cell>
-            <u-cell
-                is-link
-                icon="setting-fill"
-                title="个人设置"></u-cell>
-            <u-cell
-                is-link
-                icon="setting-fill"
-                title="个人设置"></u-cell>
-        </u-cell-group>
+        <mp-sheet
+            show-header
+            padding="0"
+            gap="32rpx"
+            title="我的服务">
+            <template #header>
+                <view class="service">
+                    <text>我的服务</text>
+                </view>
+            </template>
+            <view>
+                <u-cell
+                    :border="false"
+                    icon="phone"
+                    title="联系我们">
+                    <template #value>
+                        <u-icon name="arrow-right"></u-icon>
+                    </template>
+                </u-cell>
+                <u-cell
+                    :border="false"
+                    icon="order"
+                    title="我的举报">
+                    <template #value>
+                        <u-icon name="arrow-right"></u-icon>
+                    </template>
+                </u-cell>
+                <u-cell
+                    :border="false"
+                    icon="close-circle"
+                    title="退出登录">
+                    <template #value>
+                        <u-icon name="arrow-right"></u-icon>
+                    </template>
+                </u-cell>
+            </view>
+        </mp-sheet>
     </view>
 </template>
 
@@ -55,11 +72,22 @@ const onLoginOrToUserInfo = () => {
 </script>
 
 <style lang="scss">
+.content,
+page {
+    background-color: $u-bg-color;
+}
+
+.content {
+    padding: 32rpx;
+}
 .user-info {
     background-color: $u-primary;
     padding: 32rpx;
+    border-radius: 16rpx;
+    margin-bottom: 32rpx;
 
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     gap: 24rpx;
@@ -68,14 +96,17 @@ const onLoginOrToUserInfo = () => {
         color: $u-main-color;
         font-size: 32rpx;
         .name {
-            font-weight: 600;
-            color: $u-text-title;
-            margin-bottom: 8rpx;
+            margin-top: 16rpx;
+            color: #ffffff;
         }
 
         .phone {
             font-size: 28rpx;
         }
     }
+}
+
+.service {
+    padding: 32rpx 0 0 32rpx;
 }
 </style>
