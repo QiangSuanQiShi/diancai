@@ -28,14 +28,6 @@
                 <view class="store-notice u-line-1">
                     <text>我在这里写公告</text>
                 </view>
-                <view class="store-album">
-                    <mp-images
-                        :urls="[
-                            'https://tse4-mm.cn.bing.net/th/id/OIP-C.ly_X2rhcHm8Ds510XnRMlQHaE8?w=296&h=198&c=7&r=0&o=5&pid=1.7',
-                            'https://tse4-mm.cn.bing.net/th/id/OIP-C.ly_X2rhcHm8Ds510XnRMlQHaE8?w=296&h=198&c=7&r=0&o=5&pid=1.7',
-                            'https://tse4-mm.cn.bing.net/th/id/OIP-C.ly_X2rhcHm8Ds510XnRMlQHaE8?w=296&h=198&c=7&r=0&o=5&pid=1.7',
-                        ]"></mp-images>
-                </view>
             </view>
         </view>
         <view class="main-content">
@@ -80,11 +72,15 @@
                 </swiper-item>
             </swiper>
         </view>
+        <view class="store-footer safe-bottom">
+            <mp-settlement-bar></mp-settlement-bar>
+        </view>
     </view>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import MpSettlementBar from '@/components/mp-settlement-bar.vue';
 
 const current = ref<number>(0);
 const list1 = [
@@ -197,5 +193,16 @@ const onTabChange = (tab: any) => {
 .mp-tab-swiper {
     height: auto;
     flex: 1;
+}
+
+.store-footer {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.safe-bottom {
+    padding: 0 32rpx;
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
 }
 </style>

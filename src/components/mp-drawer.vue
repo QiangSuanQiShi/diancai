@@ -2,7 +2,7 @@
     <u-popup
         :customStyle="{
             boxSizing: 'border-box',
-            padding: '0.8rem',
+            padding: '32rpx',
         }"
         :safe-area-inset-bottom="safeAreaInsetBottom"
         :safe-area-inset-top="safeAreaInsetTop"
@@ -52,9 +52,6 @@
                 <slot name="footer">
                     <u-button
                         plain
-                        :customStyle="{
-                            height: '2.2rem',
-                        }"
                         type="primary"
                         shape="circle"
                         @click="onCancel">
@@ -62,9 +59,6 @@
                     </u-button>
                     <u-button
                         :disabled="okDisabled"
-                        :customStyle="{
-                            height: '2.2rem',
-                        }"
                         type="primary"
                         shape="circle"
                         @click="onOk">
@@ -77,7 +71,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed, CSSProperties, PropType } from 'vue';
+import type { CSSProperties, PropType } from 'vue';
+import { computed } from 'vue';
 import theme from '@/theme';
 
 const props = defineProps({
@@ -213,18 +208,18 @@ defineExpose({
 
     & > .header {
         width: 100%;
-        margin-bottom: 0.6rem;
+        margin-bottom: 32rpx;
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
 
     & > .footer {
-        margin-top: 0.6rem;
+        margin-top: 32rpx;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        gap: 1rem;
+        gap: 16rpx;
     }
 }
 </style>

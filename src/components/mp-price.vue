@@ -1,13 +1,36 @@
 <script setup lang="ts">
-defineProps({
+import type { CSSProperties } from 'vue';
+import { computed } from 'vue';
+import theme from '@/theme';
+
+const props = defineProps({
     price: {
         type: [String],
         default: '0.00',
     },
+    size: {
+        type: [String],
+        default: '24rpx',
+    },
+    color: {
+        type: [String],
+        default: theme.priceColor,
+    },
     iconColor: {
         type: [String],
-        default: '#e1251b',
+        default: theme.priceColor,
     },
+    iconSize: {
+        type: [Number, String],
+        default: 24,
+    },
+});
+
+const style = computed<CSSProperties>(() => {
+    return {
+        fontSize: props.size,
+        color: props.color,
+    };
 });
 </script>
 
@@ -15,9 +38,13 @@ defineProps({
     <view class="mp-price">
         <u-icon
             name="rmb"
-            size="24"
+            :size="iconSize"
             :color="iconColor"></u-icon>
-        <text class="price-color">{{ price }}</text>
+        <text
+            :style="style"
+            class="price-color"
+            >{{ price }}</text
+        >
     </view>
 </template>
 
@@ -27,7 +54,6 @@ defineProps({
     justify-content: center;
     align-items: center;
     & > .price-color {
-        color: $u-price-color;
     }
 }
 </style>

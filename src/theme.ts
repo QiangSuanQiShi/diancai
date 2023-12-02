@@ -38,6 +38,8 @@ export default {
 
     gapColor: '#f6f7fa',
 
+    priceColor: '#e1251b',
+
     fontSizes: {
         xxs: 12,
         xs: 14,

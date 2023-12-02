@@ -1,6 +1,8 @@
 <template>
     <view class="content">
-        <view class="state">
+        <view
+            class="state"
+            @click="show = true">
             <text class="state-title">订单已完成</text>
             <u-icon
                 size="18"
@@ -130,10 +132,31 @@
             </view>
         </mp-sheet>
     </view>
+    <mp-drawer
+        v-model:show="show"
+        height="40">
+        <u-steps
+            current="1"
+            direction="column">
+            <u-steps-item
+                title="已下单"
+                desc="10:30">
+            </u-steps-item>
+            <u-steps-item
+                title="已出库"
+                desc="10:35">
+            </u-steps-item>
+            <u-steps-item
+                title="运输中"
+                desc="11:40"></u-steps-item>
+        </u-steps>
+    </mp-drawer>
 </template>
 
 <script setup lang="ts">
-import MpPrice from '@/components/mp-price.vue';
+import { ref } from 'vue';
+
+const show = ref(false);
 </script>
 
 <style lang="scss">

@@ -10,6 +10,7 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     MpAvatar: typeof import('./src/components/mp-avatar.vue')['default']
+    MpBadge: typeof import('./src/components/mp-badge.vue')['default']
     MpCard: typeof import('./src/components/mp-card.vue')['default']
     MpComment: typeof import('./src/components/mp-comment.vue')['default']
     MpCommodityItemCard: typeof import('./src/components/mp-commodity-item-card.vue')['default']
@@ -23,6 +24,7 @@ declare module '@vue/runtime-core' {
     MpOrderCard: typeof import('./src/components/mp-order-card.vue')['default']
     MpPhone: typeof import('./src/components/mp-phone.vue')['default']
     MpPrice: typeof import('./src/components/mp-price.vue')['default']
+    MpSettlementBar: typeof import('./src/components/mp-settlement-bar.vue')['default']
     MpSheet: typeof import('./src/components/mp-sheet.vue')['default']
     MpTabItem: typeof import('./src/components/mp-tab-item.vue')['default']
     MpTabs: typeof import('./src/components/mp-tabs.vue')['default']
