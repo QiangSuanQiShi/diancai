@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { PropType } from 'vue';
-import { onLoad } from '@dcloudio/uni-app';
 import { ref } from 'vue';
 import accounts from '@/api/accounts';
 import { useMpStore } from '@/store';
@@ -41,11 +40,11 @@ const getUserPhoneNumber = (res: any) => {
             async success(loginRes: any) {
                 try {
                     loading.value = true;
-                    const data: MpApi.AccountInitInfo = await accounts.login({
+                    const data: MpApi.UserResponse = await accounts.login({
                         js_code: loginRes.code,
                         code: res.detail.code,
                     });
-                    store.update(data.user);
+                    store.update(data);
                     uni.setStorageSync(TOKEN_NAME, data.token);
                     loading.value = false;
                     emits('success');

@@ -1,10 +1,16 @@
 <script setup lang="ts">
+import { useMpStore } from '@/store';
+
 defineProps({
     showIcon: {
         type: Boolean,
         default: true,
     },
 });
+
+const store = useMpStore();
+console.log(store.getCartPrice());
+console.log(store.getCartCount());
 </script>
 
 <template>
@@ -14,7 +20,7 @@ defineProps({
                 <view
                     v-if="showIcon"
                     class="icon">
-                    <mp-badge value="3">
+                    <mp-badge :value="store.getCartCount()">
                         <u-icon
                             color="#fff"
                             size="40"
@@ -25,7 +31,7 @@ defineProps({
                 <mp-price
                     icon-size="16"
                     size="40rpx"
-                    price="112"
+                    :price="store.getCartPrice() + ''"
                     color="#fff"
                     icon-color="#fff"></mp-price>
             </view>

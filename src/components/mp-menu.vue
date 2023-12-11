@@ -8,12 +8,12 @@
                 :scroll-top="scrollTop"
                 :scroll-into-view="itemId">
                 <view
-                    v-for="(item, index) in tabber"
+                    v-for="(item, index) in foodSkuItemsMenu"
                     :key="index"
                     class="u-tab-item"
                     :class="[current == index ? 'u-tab-item-active' : '']"
                     @tap.stop="swichMenu(index)">
-                    <text class="u-line-1">{{ item.name }}</text>
+                    <text class="u-line-1">{{ item.type }}</text>
                 </view>
             </scroll-view>
             <scroll-view
@@ -26,16 +26,17 @@
                     <view
                         class="class-item"
                         :id="'item' + index"
-                        v-for="(item, index) in tabber"
+                        v-for="(item, index) in foodSkuItemsMenu"
                         :key="index">
                         <view class="item-title">
-                            <text>{{ item.name }}</text>
+                            <text>{{ item.type }}</text>
                         </view>
                         <view class="item-container">
-                            <mp-commodity-item-card
-                                v-for="(item1, index1) in item.foods"
+                            <mp-store-item-card
+                                v-bind="item1"
+                                v-for="(item1, index1) in item.items"
                                 :key="index1">
-                            </mp-commodity-item-card>
+                            </mp-store-item-card>
                         </view>
                     </view>
                 </view>
@@ -45,8 +46,17 @@
 </template>
 
 <script setup lang="ts">
-import { ref, nextTick, getCurrentInstance } from 'vue';
+import { ref, nextTick, getCurrentInstance, PropType } from 'vue';
 import { onReady } from '@dcloudio/uni-app';
+
+type FoodSkuItemsMenu = {
+    type: string;
+    items: MpApi.FoodSkuItemResponse[];
+};
+
+defineProps({
+    foodSkuItemsMenu: Array as PropType<FoodSkuItemsMenu[]>,
+});
 
 const { proxy } = getCurrentInstance();
 // tab标题的滚动条位置
@@ -59,97 +69,6 @@ const menuHeight = ref<number>(0);
 const menuItemHeight = ref<number>(0);
 // 栏目右边scroll-view用于滚动的id
 const itemId = ref<string>('');
-
-const tabber = ref<any>([
-    {
-        name: '肉类',
-        foods: [
-            {
-                name: 'A字裙',
-                key: 'A字裙',
-                icon: 'https://cdn.uviewui.com/uview/common/classify/1/1.jpg',
-                cat: 10,
-            },
-            {
-                name: 'A字裙',
-                key: 'A字裙',
-                icon: 'https://cdn.uviewui.com/uview/common/classify/1/1.jpg',
-                cat: 10,
-            },
-            {
-                name: 'A字裙',
-                key: 'A字裙',
-                icon: 'https://cdn.uviewui.com/uview/common/classify/1/1.jpg',
-                cat: 10,
-            },
-            {
-                name: 'A字裙',
-                key: 'A字裙',
-                icon: 'https://cdn.uviewui.com/uview/common/classify/1/1.jpg',
-                cat: 10,
-            },
-            {
-                name: 'A字裙',
-                key: 'A字裙',
-                icon: 'https://cdn.uviewui.com/uview/common/classify/1/1.jpg',
-                cat: 10,
-            },
-            {
-                name: 'A字裙',
-                key: 'A字裙',
-                icon: 'https://cdn.uviewui.com/uview/common/classify/1/1.jpg',
-                cat: 10,
-            },
-        ],
-    },
-    {
-        name: '蔬菜',
-        foods: [
-            {
-                name: 'A字裙',
-                key: 'A字裙',
-                icon: 'https://cdn.uviewui.com/uview/common/classify/1/1.jpg',
-                cat: 10,
-            },
-            {
-                name: 'A字裙',
-                key: 'A字裙',
-                icon: 'https://cdn.uviewui.com/uview/common/classify/1/1.jpg',
-                cat: 10,
-            },
-            {
-                name: 'A字裙',
-                key: 'A字裙',
-                icon: 'https://cdn.uviewui.com/uview/common/classify/1/1.jpg',
-                cat: 10,
-            },
-            {
-                name: 'A字裙',
-                key: 'A字裙',
-                icon: 'https://cdn.uviewui.com/uview/common/classify/1/1.jpg',
-                cat: 10,
-            },
-            {
-                name: 'A字裙',
-                key: 'A字裙',
-                icon: 'https://cdn.uviewui.com/uview/common/classify/1/1.jpg',
-                cat: 10,
-            },
-            {
-                name: 'A字裙',
-                key: 'A字裙',
-                icon: 'https://cdn.uviewui.com/uview/common/classify/1/1.jpg',
-                cat: 10,
-            },
-            {
-                name: 'A字裙',
-                key: 'A字裙',
-                icon: 'https://cdn.uviewui.com/uview/common/classify/1/1.jpg',
-                cat: 10,
-            },
-        ],
-    },
-]);
 
 const menuItemPos = ref<any>([]);
 
@@ -375,8 +294,6 @@ onReady(() => {
 }
 
 .item-container {
-    display: flex;
-    flex-wrap: wrap;
 }
 
 .thumb-box {

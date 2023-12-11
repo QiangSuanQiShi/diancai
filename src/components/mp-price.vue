@@ -22,7 +22,7 @@ const props = defineProps({
     },
     iconSize: {
         type: [Number, String],
-        default: 24,
+        default: 16,
     },
 });
 

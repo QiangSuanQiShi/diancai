@@ -1,5 +1,22 @@
 <script setup lang="ts">
-const emits = defineEmits(['onDetail']);
+type OrderResponse = {
+    id: string;
+    userId: string;
+    userPhone: string;
+    foodSkuId: string;
+    foodName: string;
+    foodTaste: string;
+    merchantId: number;
+    merchantPhone: string;
+    isBrush: number;
+    address: string;
+    createTime: string;
+    updateTime: string;
+    mark: number;
+};
+
+const emits = defineEmits(['onDetail', 'action']);
+const props = withDefaults(defineProps<OrderResponse>(), {});
 </script>
 
 <template>
@@ -77,6 +94,7 @@ const emits = defineEmits(['onDetail']);
                     </view>
                     <view class="mp-order-operation">
                         <u-button
+                            @click.stop="emits('action', 'comment')"
                             custom-style="width: auto;  margin: 0;"
                             size="normal"
                             type="primary"

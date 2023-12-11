@@ -8,14 +8,14 @@
                         <u-image
                             radius="4"
                             :show-loading="true"
-                            src="https://tse4-mm.cn.bing.net/th/id/OIP-C.ly_X2rhcHm8Ds510XnRMlQHaE8?w=296&h=198&c=7&r=0&o=5&pid=1.7"
+                            :src="merchant.merchantImg"
                             width="80rpx"
                             height="80rpx"></u-image>
                     </view>
                     <view class="store-info-name">
-                        <text class="u-line-1"> 穷哥们火锅店 </text>
+                        <text class="u-line-1"> {{ merchant.userName }} </text>
                         <view class="tags">
-                            <text>人气排行第一名</text>
+                            <text class="tag-text"> 1人份 </text>
                         </view>
                     </view>
                     <view>
@@ -50,7 +50,7 @@
                         <scroll-view
                             style="width: 100%; min-height: 0; overflow: visible; height: 100%"
                             :scroll-y="true">
-                            <mp-menu></mp-menu>
+                            <mp-menu :food-sku-items-menu="createFoodMenu"></mp-menu>
                         </scroll-view>
                     </view>
                 </swiper-item>
@@ -79,8 +79,35 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import MpSettlementBar from '@/components/mp-settlement-bar.vue';
+import { ref, computed } from 'vue';
+import { onLoad } from '@dcloudio/uni-app';
+import merchants from '@/api/merchants';
+import foodSkus from '@/api/foodSku';
+import { useMpStore } from '@/store';
+
+type foodSkuItemsMenu = {
+    type: string;
+    items: MpApi.FoodSkuItemResponse[];
+};
+
+const merchantId = ref<number>(0);
+const id = ref<number>(0);
+const loading = ref<boolean>(false);
+const store = useMpStore();
+
+const merchant = ref<MpApi.MerchantResponse>({
+    id: '',
+    userName: '',
+    isBrush: 0,
+    merchantImg: '',
+    phone: '',
+    salesNum: 0,
+    star: 0,
+    createTime: '',
+    updateTime: '',
+});
+
+const foodSkuItems = ref<MpApi.FoodSkuItemResponse[]>([]);
 
 const current = ref<number>(0);
 const list1 = [
@@ -91,6 +118,27 @@ const list1 = [
         name: '评价',
     },
 ];
+
+const createFoodMenu = computed<foodSkuItemsMenu[]>(() => {
+    const menus: foodSkuItemsMenu[] = [];
+
+    const ms: any = [];
+    foodSkuItems.value.forEach((item: MpApi.FoodSkuItemResponse) => {
+        if (ms[item.merchantFoodType] != null && ms[item.merchantFoodType].length > 0) {
+            ms[item.merchantFoodType] = [...ms[item.merchantFoodType], item];
+        } else {
+            ms[item.merchantFoodType] = [item];
+        }
+    });
+
+    for (const key in ms) {
+        menus.push({
+            type: key,
+            items: ms[key],
+        });
+    }
+    return menus;
+});
 
 const click = (item: any) => {
     console.log('item', item);
@@ -103,6 +151,33 @@ const onPageChange = (e: any) => {
 const onTabChange = (tab: any) => {
     current.value = tab.index;
 };
+
+const initFoodSkus = async () => {
+    try {
+        loading.value = true;
+        foodSkuItems.value = await foodSkus.selectFoodByMerchantID(merchantId.value);
+        loading.value = false;
+    } catch (e) {
+        loading.value = false;
+    }
+};
+const initData = async () => {
+    try {
+        loading.value = true;
+        merchant.value = await merchants.show(merchantId.value);
+        loading.value = false;
+    } catch (e) {
+        loading.value = false;
+    }
+};
+
+onLoad(async (query: any) => {
+    store.clearCart();
+    merchantId.value = query?.merchantId;
+    id.value = query?.id;
+    await initData();
+    await initFoodSkus();
+});
 </script>
 
 <style lang="scss">
@@ -132,9 +207,9 @@ const onTabChange = (tab: any) => {
             border-radius: 16rpx;
             background-color: #ffffff;
             padding: 24rpx;
-            box-shadow: 0px 0px 0.2px rgba(0, 0, 0, 0.02), 0px 0px 0.5px rgba(0, 0, 0, 0.028),
-                0px 0px 1px rgba(0, 0, 0, 0.035), 0px 0px 1.8px rgba(0, 0, 0, 0.042),
-                0px 0 3.3px rgba(0, 0, 0, 0.05), 0px 0px 8px rgba(0, 0, 0, 0.07);
+            box-shadow: 0 0 0.2px rgba(0, 0, 0, 0.02), 0 0 0.5px rgba(0, 0, 0, 0.028),
+                0 0 1px rgba(0, 0, 0, 0.035), 0 0 1.8px rgba(0, 0, 0, 0.042), 0 0 3.3px rgba(0, 0, 0, 0.05),
+                0 0 8px rgba(0, 0, 0, 0.07);
             & > .store-info {
                 margin-bottom: 16rpx;
                 display: flex;

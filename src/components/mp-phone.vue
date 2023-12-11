@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import type { CSSProperties } from 'vue';
 import { computed } from 'vue';
+import theme from '@/theme';
 
 const props = defineProps({
     phone: {
@@ -13,6 +15,21 @@ const props = defineProps({
         type: Boolean,
         default: true,
     },
+    color: {
+        type: String,
+        default: theme.mainColor,
+    },
+    size: {
+        type: String,
+        default: '24rpx',
+    },
+});
+
+const style = computed<CSSProperties>(() => {
+    return {
+        color: props.color,
+        fontSize: props.size,
+    };
 });
 
 const phoneText = computed(() => {
@@ -41,7 +58,9 @@ const onCall = () => {
     <view
         @click="onCall"
         class="color-text">
-        {{ phoneText }}
+        <text :style="style">
+            {{ phoneText }}
+        </text>
     </view>
 </template>
 

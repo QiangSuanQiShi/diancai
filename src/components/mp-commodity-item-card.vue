@@ -1,31 +1,50 @@
 <script setup lang="ts">
+interface foodSkuResponse {
+    id: string;
+    name: string;
+    salesNum: number;
+    merchantFoodType: string;
+    money: null;
+    merchantId: string;
+    foodImg: string;
+    foodStats: string;
+    createTime: string;
+    updateTime: string;
+}
+
 // https://tse4-mm.cn.bing.net/th/id/OIP-C.ly_X2rhcHm8Ds510XnRMlQHaE8?w=296&h=198&c=7&r=0&o=5&pid=1.7
 const emits = defineEmits(['click']);
+
+const props = withDefaults(defineProps<foodSkuResponse>(), {});
+
+const onClick = () => {
+    emits('click', props);
+};
 </script>
 
 <template>
     <mp-sheet>
         <view
-            @click="emits('click')"
+            @click="onClick"
             class="card">
             <view class="banner">
                 <u-image
                     radius="4"
                     :show-loading="true"
-                    src="https://tse4-mm.cn.bing.net/th/id/OIP-C.ly_X2rhcHm8Ds510XnRMlQHaE8?w=296&h=198&c=7&r=0&o=5&pid=1.7"
+                    :src="foodImg"
                     width="160rpx"
                     height="160rpx"></u-image>
             </view>
             <view class="info">
                 <slot>
                     <view class="info-title">
-                        <text class="u-line-1">羊肉卷</text>
+                        <text class="u-line-1">{{ name }}</text>
                     </view>
                     <view class="score"> 5分 </view>
 
                     <view class="sales">
                         <view class="sales-info">
-                            <text>月售100</text>
+                            <text>月售{{ salesNum }}</text>
                             <text>人均￥11000</text>
                         </view>
 

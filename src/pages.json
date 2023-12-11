@@ -49,6 +49,13 @@
         "navigationBarTitleText": "详细",
         "navigationBarBackgroundColor": "#f6f7fa"
       }
+    },
+    {
+      "path": "pages/order/comment",
+      "style": {
+        "navigationBarTitleText": "评论",
+        "navigationBarBackgroundColor": "#12c294"
+      }
     }
   ],
   "globalStyle": {

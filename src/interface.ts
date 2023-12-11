@@ -18,6 +18,7 @@ declare global {
             collectFoodSku: string;
             createTime: string;
             updateTime: string;
+            token: string;
         }
 
         interface AccountInitInfo {
@@ -27,8 +28,69 @@ declare global {
             tokenExpiration: string;
         }
 
+        interface foodSkuResponse {
+            id: string;
+            name: string;
+            salesNum: number;
+            merchantFoodType: string;
+            money: number;
+            merchantId: string;
+            foodImg: string;
+            foodStats: string;
+            createTime: string;
+            updateTime: string;
+        }
+
+        interface Cart {
+            count: number;
+            foodSkuId: string;
+            foodSku: foodSkuResponse;
+        }
+
         interface UserState {
             user: UserResponse | null;
+            carts: Cart[];
+        }
+
+        interface OrderResponse {
+            id: string;
+            userId: string;
+            userPhone: string;
+            foodSkuId: string;
+            foodName: string;
+            foodTaste: string;
+            merchantId: number;
+            merchantPhone: string;
+            isBrush: number;
+            address: string;
+            createTime: string;
+            updateTime: string;
+            mark: number;
+        }
+
+        interface MerchantResponse {
+            id: string;
+            userName: string;
+            isBrush: number;
+            merchantImg: string;
+            phone: string;
+            salesNum: number;
+            star: number;
+            createTime: string;
+            updateTime: string;
+        }
+
+        interface FoodSkuItemResponse {
+            id: string;
+            createTime: string;
+            foodImg: string;
+            foodStats: string;
+            merchantFoodType: string;
+            merchantId: string;
+            money: number;
+            name: string;
+            salesNum: number;
+            updateTime: string;
         }
     }
 

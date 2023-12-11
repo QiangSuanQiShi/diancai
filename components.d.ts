@@ -9,6 +9,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    MpAdd: typeof import('./src/components/mp-add.vue')['default']
     MpAvatar: typeof import('./src/components/mp-avatar.vue')['default']
     MpBadge: typeof import('./src/components/mp-badge.vue')['default']
     MpCard: typeof import('./src/components/mp-card.vue')['default']
@@ -17,6 +18,7 @@ declare module '@vue/runtime-core' {
     MpDrawer: typeof import('./src/components/mp-drawer.vue')['default']
     MpGap: typeof import('./src/components/mp-gap.vue')['default']
     MpImages: typeof import('./src/components/mp-images.vue')['default']
+    MpLikeRefreshList: typeof import('./src/components/mp-like-refresh-list.vue')['default']
     MpLocalCuisine: typeof import('./src/components/mp-local-cuisine.vue')['default']
     MpLoginButton: typeof import('./src/components/mp-login-button.vue')['default']
     MpMenu: typeof import('./src/components/mp-menu.vue')['default']
@@ -24,8 +26,10 @@ declare module '@vue/runtime-core' {
     MpOrderCard: typeof import('./src/components/mp-order-card.vue')['default']
     MpPhone: typeof import('./src/components/mp-phone.vue')['default']
     MpPrice: typeof import('./src/components/mp-price.vue')['default']
+    MpRefreshList: typeof import('./src/components/mp-refresh-list.vue')['default']
     MpSettlementBar: typeof import('./src/components/mp-settlement-bar.vue')['default']
     MpSheet: typeof import('./src/components/mp-sheet.vue')['default']
+    MpStoreItemCard: typeof import('./src/components/mp-store-item-card.vue')['default']
     MpTabItem: typeof import('./src/components/mp-tab-item.vue')['default']
     MpTabs: typeof import('./src/components/mp-tabs.vue')['default']
     MpTest: typeof import('./src/components/mp-test.vue')['default']

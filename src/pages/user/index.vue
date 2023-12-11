@@ -15,7 +15,9 @@
                         <text>{{ store.user?.userName ?? '微信用户' }}</text>
                     </view>
                     <view class="phone">
-                        <mp-phone :phone="store.user?.phone"></mp-phone>
+                        <mp-phone
+                            :color="theme.white"
+                            :phone="store.user?.phone"></mp-phone>
                     </view>
                 </view>
             </view>
@@ -62,6 +64,7 @@
 
 <script setup lang="ts">
 import { useMpStore } from '@/store';
+import theme from '@/theme';
 
 const store = useMpStore();
 const onLoginOrToUserInfo = () => {
@@ -93,8 +96,8 @@ page {
     gap: 24rpx;
 
     & > .user-info-name {
-        color: $u-main-color;
         font-size: 32rpx;
+        color: white;
         .name {
             margin-top: 16rpx;
             color: #ffffff;

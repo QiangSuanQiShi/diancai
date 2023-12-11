@@ -97,6 +97,8 @@ const style = computed<CSSProperties>(() => {
 .mp-sheet {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
 
     & > .mp-sheet-header {
         display: flex;

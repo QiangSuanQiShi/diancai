@@ -4,6 +4,7 @@ import accounts from '@/api/accounts';
 export const useMpStore = defineStore('app', {
     state: (): MpApi.UserState => ({
         user: null,
+        carts: [],
     }),
 
     getters: {
@@ -25,6 +26,48 @@ export const useMpStore = defineStore('app', {
                     reject(e);
                 }
             });
+        },
+
+        /**
+         * 添加购物车
+         * @param foodSku
+         */
+        addCart(foodSku: MpApi.foodSkuResponse) {
+            const index = this.carts.findIndex((cart) => {
+                return cart.foodSkuId === foodSku.id;
+            });
+
+            if (index === -1) {
+                const cart: MpApi.Cart = {
+                    count: 1,
+                    foodSkuId: foodSku.id,
+                    foodSku,
+                };
+                this.carts = [...this.carts, cart];
+            } else {
+                this.carts[index].count += 1;
+            }
+        },
+        /**
+         * 清除购物车
+         * @returns
+         */
+        clearCart() {
+            this.carts = [];
+        },
+        /**
+         * 获取购物车数量
+         */
+        getCartCount() {
+            return this.carts.reduce((total, cart) => {
+                return total + cart.count;
+            }, 0);
+        },
+
+        getCartPrice() {
+            return this.carts.reduce((total, cart) => {
+                return total + cart.foodSku.money * cart.count;
+            }, 0);
         },
     },
 });
