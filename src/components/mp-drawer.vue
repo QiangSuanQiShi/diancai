@@ -215,6 +215,8 @@ defineExpose({
     }
 
     & > .footer {
+        box-sizing: border-box;
+        width: 100%;
         margin-top: 32rpx;
         display: flex;
         justify-content: space-between;

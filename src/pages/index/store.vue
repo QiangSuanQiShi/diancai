@@ -73,8 +73,9 @@
             </swiper>
         </view>
         <view class="store-footer safe-bottom">
-            <mp-settlement-bar></mp-settlement-bar>
+            <mp-settlement-bar @click="show = true"></mp-settlement-bar>
         </view>
+        <mp-cart-drawer v-model:show="show"></mp-cart-drawer>
     </view>
 </template>
 
@@ -94,6 +95,7 @@ const merchantId = ref<number>(0);
 const id = ref<number>(0);
 const loading = ref<boolean>(false);
 const store = useMpStore();
+const show = ref<boolean>(false);
 
 const merchant = ref<MpApi.MerchantResponse>({
     id: '',

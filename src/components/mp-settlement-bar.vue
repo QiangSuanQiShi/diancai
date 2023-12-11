@@ -9,8 +9,7 @@ defineProps({
 });
 
 const store = useMpStore();
-console.log(store.getCartPrice());
-console.log(store.getCartCount());
+const emits = defineEmits(['click']);
 </script>
 
 <template>
@@ -36,7 +35,9 @@ console.log(store.getCartCount());
                     icon-color="#fff"></mp-price>
             </view>
         </view>
-        <view class="settlement-bar-but">
+        <view
+            @click="emits('click')"
+            class="settlement-bar-but">
             <text>提交订单</text>
         </view>
     </view>
